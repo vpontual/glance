@@ -19,3 +19,6 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.service.ports.http.targetPort }}
+    args:
+      - "--config"
+      - "/mnt/glance.yaml"
