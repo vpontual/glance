@@ -11,5 +11,4 @@ spec:
       name: http
   selector:
     app: {{ .Release.Name }}
-    tier: frontend
   type: NodePort 
