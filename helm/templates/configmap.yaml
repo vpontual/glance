@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: myconfigmapv1.0
-  namespace: name: {{ include "glance.fullname" . }}-config
+  name: {{ include "glance.fullname" . }}-config
 data:
   glance.yaml: |
 {{ .Values.config.data | indent 4 }}

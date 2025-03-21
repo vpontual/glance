@@ -8,19 +8,19 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "glance.fullname" }}
+      app: {{ include "glance.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ include "glance.fullname" }}
+        app: {{ include "glance.fullname" . }}
     spec:
       containers:
-        - name: {{ include "glance.fullname" }}
+        - name: {{ include "glance.fullname" . }}
           image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: {{ .Values.service.ports.http.name }}
-              containerPort: {{ .Values.service.ports.http.port.name }}
+              containerPort: {{ .Values.service.ports.http.containerPort }}
           args:
             - '--config'
             - '/mnt/glance.yaml'
