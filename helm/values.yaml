@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: vpee/glance
-  pullPolicy: Always
-  tag: latest
+  pullPolicy: IfNotPresent
+  tag: v0.7.7
 
 service:
   type: ClusterIP
@@ -106,7 +106,6 @@ config:
                   - go-gitea/gitea
                   - immich-app/immich
                   - syncthing/syncthing
-
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
