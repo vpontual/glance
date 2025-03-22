@@ -108,7 +108,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: vpee/glance:${{ env.TAG_NAME }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/glance:${{ env.TAG_NAME }}
 
           
 
