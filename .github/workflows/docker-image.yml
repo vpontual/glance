@@ -69,4 +69,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/glance:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/glance:${LATEST_TAG}
+#            ${{ secrets.DOCKERHUB_USERNAME }}/glance:${LATEST_TAG}
