@@ -1,0 +1,36 @@
+name: Sync Upstream Tags
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # runs every hour
+  workflow_dispatch:      # allows manual run
+
+jobs:
+  sync-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your fork
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream and fetch tags
+        run: |
+          git remote add upstream https://github.com/original-author/original-repo.git
+          git fetch upstream --tags
+
+      - name: Push missing tags to origin
+        run: |
+          for tag in $(git tag); do
+            if ! git ls-remote --tags origin | grep -q "refs/tags/$tag"; then
+              echo "Pushing tag: $tag"
+              git push origin "refs/tags/$tag"
+            else
+              echo "Tag $tag already exists in origin"
+            fi
+          done
