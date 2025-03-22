@@ -68,5 +68,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/your-image-name:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/your-image-name:${LATEST_TAG}
+            ${{ secrets.DOCKERHUB_USERNAME }}/glance:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/glance:${LATEST_TAG}
