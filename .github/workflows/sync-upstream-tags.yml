@@ -21,7 +21,7 @@ jobs:
 
       - name: Add upstream and fetch tags
         run: |
-          git remote add upstream https://github.com/original-author/original-repo.git
+          git remote add upstream https://github.com/glanceapp/glance.git
           git fetch upstream --tags
 
       - name: Push missing tags to origin
