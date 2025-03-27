@@ -112,4 +112,4 @@ ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: 'traefik'
-  host: glance.home
+  host: glance.home-rp.com
