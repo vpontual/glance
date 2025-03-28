@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: vpee/glance
   pullPolicy: IfNotPresent
-  tag: v0.7.7.03
+  tag: v0.7.8.01
 
 service:
   type: ClusterIP
