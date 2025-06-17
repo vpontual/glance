@@ -21,11 +21,17 @@ var globalTemplateFunctions = template.FuncMap{
 	"safeURL": func(str string) template.URL {
 		return template.URL(str)
 	},
+	"safeHTML": func(str string) template.HTML {
+		return template.HTML(str)
+	},
 	"absInt": func(i int) int {
 		return int(math.Abs(float64(i)))
 	},
 	"formatPrice": func(price float64) string {
 		return intl.Sprintf("%.2f", price)
+	},
+	"formatPriceWithPrecision": func(precision int, price float64) string {
+		return intl.Sprintf("%."+strconv.Itoa(precision)+"f", price)
 	},
 	"dynamicRelativeTimeAttrs": dynamicRelativeTimeAttrs,
 	"formatServerMegabytes": func(mb uint64) template.HTML {
