@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: vpee/glance
+  repository: glanceapp/glance
   pullPolicy: IfNotPresent
-  tag: v0.7.7.03
+  tag: latest
 
 service:
   type: ClusterIP
@@ -111,5 +111,5 @@ config:
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: 'traefik'
-  host: glance.home
+    kubernetes.io/ingress.class: "traefik"
+  host: glance.casavp.com
