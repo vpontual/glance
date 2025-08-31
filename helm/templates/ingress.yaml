@@ -17,7 +17,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "glance.fullname" . }}-service
+                name: {{ include "glance.fullname" . }}
                 port:
                   number: {{ .Values.service.ports.http.port }}
 {{- end }}
