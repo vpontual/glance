@@ -5,6 +5,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.8.4
 
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    memory: 256Mi
+
 service:
   type: ClusterIP
   ports:
@@ -113,3 +120,6 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: 'traefik'
   host: glance.home
+  # pathType: Prefix | Exact | ImplementationSpecific
+  pathType: Prefix
+  path: /

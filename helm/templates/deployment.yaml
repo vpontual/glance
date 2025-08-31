@@ -26,6 +26,8 @@ spec:
           args:
             - '--config'
             - '/mnt/glance.yaml'
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
 {{- if .Values.config.enabled }}
           volumeMounts:
             - name: config-volume
